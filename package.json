@@ -3,10 +3,21 @@
   "version": "1.0.1",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"欢迎使用VV组件\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+  "keywords": [
+    "vvcomponent",
+    "VV组件"
+  ],
+  "author": {
+    "name": "IFTC",
+    "email": "iftcceo@139.com",
+    "url": "http://iftc.free.nf"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IFTC-XLKJ/component"
+  },
+  "license": "MIT",
+  "description": "VV组件"
 }
