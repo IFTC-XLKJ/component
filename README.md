@@ -28,4 +28,4 @@ npm install vvcomponent
 7. Have fun!
 
 ## 许可证
-This project is licensed under the MIT License.
+该项目使用 MIT 许可证。
