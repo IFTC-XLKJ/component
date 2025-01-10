@@ -27,5 +27,5 @@ npm install vvcomponent
 6. Wait for the maintainers to review and merge your changes.
 7. Have fun!
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+## 许可证
+This project is licensed under the MIT License.
