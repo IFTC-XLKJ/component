@@ -19,13 +19,13 @@ npm install vvcomponent
 
 
 ## 贡献
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and commit them.
-4. Push your changes to your fork.
-5. Create a pull request to the main repository.
-6. Wait for the maintainers to review and merge your changes.
-7. Have fun!
+1. 复制此仓库。
+2. 为你的功能或错误修复创建一个新分支。
+3. 进行更改并提交。
+4. 将更改推送到你的复制仓库。
+5. 向主仓库创建一个拉取请求。
+6. 等待维护者审核并合并你的更改。
+7. 玩得开心！
 
 ## 许可证
 该项目使用 MIT 许可证。
