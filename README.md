@@ -11,19 +11,12 @@ This document provides an overview of the component, its features, and how to us
 ## Installation
 To install the component, run the following command:
 ```bash
-npm install component-name
+npm install vvcomponent
 ```
 
 ## Usage
 Here is an example of how to use the component:
 ```javascript
-import Component from 'component-name';
-
-const App = () => (
-    <Component prop1="value1" prop2="value2" />
-);
-
-export default App;
 ```
 
 ## Contributing
