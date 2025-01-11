@@ -5,6 +5,7 @@
   "scripts": {
     "test": "echo \"欢迎使用VV组件\" && exit 1"
   },
+  "changelog": "CHANGELOG.md",
   "keywords": [
     "vvcomponent",
     "VV组件"
