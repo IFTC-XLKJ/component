@@ -162,6 +162,7 @@ class aVideoPlayer {
         if (!isMobileDevice()) {
             this.#element.addEventListener("mouseover", () => haddlePCCtrl(true))
             this.#element.addEventListener("mouseout", () => haddlePCCtrl(false))
+            this.#element.addEventListener("keydown", haddleShortcutKey)
         }
         this.#element.addEventListener("dblclick", haddleDBClick)
 
