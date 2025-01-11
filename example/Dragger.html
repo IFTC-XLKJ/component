@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <title>Dragger Component</title>
+    <script src="/class/Dragger.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .dragger {
+            white-space: nowrap;
+            overflow: hidden;
+            user-select: none;
+            border: 1px solid #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dragger" draggable="true">Drag me!</div>
+
+    <script>
+        const dragger = document.querySelector('.dragger'); // 获取要拖拽元素
+        const config = { // 配置项
+            isToTop: true, // 是否置顶
+            range: { // 拖拽范围
+                x1: 0,
+                y1: 0,
+                x2: innerWidth,
+                y2: innerHeight
+            },
+            direction: null, // 拖拽方向，二选一："Horizontal" || "Vertical"，null为自由拖拽
+        };
+        const draggerComponent = new Dragger(dragger, config); // 创建拖拽组件实例，配置项可选
+        draggerComponent.onDragStart = e => {
+            console.log("开始拖动", e)
+        }
+        draggerComponent.onDrag = e => {
+            console.log("正在拖动", e)
+        }
+        draggerComponent.onDragEnd = e => {
+            console.log("结束拖动", e)
+        }
+        draggerComponent.setConfig("isToTop", false) // 设置配置项
+        draggerComponent.reset() // 重置拖拽组件实例
+    </script>
+</body>
+
+</html>

@@ -163,15 +163,6 @@ class aDragger {
             x: e.clientX,
             y: e.clientY
         };
-        const events = {
-            element: this.#element,
-            x: this.currentPosition.x,
-            y: this.currentPosition.y,
-            timestamp: Date.now()
-        }
-        if (typeof this.onDrag == "function") {
-            this.onDrag(events)
-        }
         if (this.range) {
             const {
                 x1,
@@ -179,6 +170,9 @@ class aDragger {
                 x2,
                 y2
             } = this.range
+            const lastX = this.currentPosition.x
+            const lastY = this.currentPosition.y
+            console.log(lastX, lastY)
             const w = x2 - x1
             const h = y2 - y1
             const ex = this.#element.offsetLeft
@@ -206,6 +200,15 @@ class aDragger {
                 this.currentPosition.y = y2 - eh
             }
         }
+        const events = {
+            element: this.#element,
+            x: this.currentPosition.x,
+            y: this.currentPosition.y,
+            timestamp: Date.now()
+        }
+        if (typeof this.onDrag == "function") {
+            this.onDrag(events)
+        }
     }
 
     onTouchMove(e) {
@@ -226,15 +229,6 @@ class aDragger {
             x: touch.clientX,
             y: touch.clientY
         };
-        const events = {
-            element: this.#element,
-            x: this.currentPosition.x,
-            y: this.currentPosition.y,
-            timestamp: Date.now()
-        }
-        if (typeof this.onDrag == "function") {
-            this.onDrag(events)
-        }
         if (this.range) {
             const {
                 x1,
@@ -268,6 +262,15 @@ class aDragger {
                 this.initPosition.y = y2 - eh
                 this.currentPosition.y = y2 - eh
             }
+        }
+        const events = {
+            element: this.#element,
+            x: this.currentPosition.x,
+            y: this.currentPosition.y,
+            timestamp: Date.now()
+        }
+        if (typeof this.onDrag == "function") {
+            this.onDrag(events)
         }
     }
 
