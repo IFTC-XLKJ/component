@@ -3,6 +3,23 @@
 ## [1.0.32]
 
 ### 添加
+- /example/VideoPlayer.html 示例
+
+### 修复
+- 无
+
+### 改进
+- 无
+
+### 更改
+- /class/VideoPlayer.js 对PC端鼠标功能更新
+
+### 移除
+- 无
+
+## [1.0.32]
+
+### 添加
 - /class/Timer.js
 - /class/Chatbox.js
 - /class/VideoPlayer.js

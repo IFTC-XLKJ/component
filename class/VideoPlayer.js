@@ -77,6 +77,9 @@ class aVideoPlayer {
         this.#playBtn.addEventListener("click", e => {
             this.pause()
         })
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
         this.#playBtn.style.display = "none"
         this.#element.oncontextmenu = e => {
             const oldmenu = document.body.querySelector(".menu")
@@ -150,15 +153,17 @@ class aVideoPlayer {
             this.#dragger.goto(e.clientX - 6, null)
             video.currentTime = video.duration * draggedPer
         })
+        const that = this
         if (isMobileDevice()) {
             this.#element.addEventListener("click", haddleCtrl)
             this.#element.addEventListener("touchstart", haddleSpeedUp)
             document.addEventListener("touchend", haddleSpeedDown)
-        } else {
-
+        }
+        if (!isMobileDevice()) {
+            this.#element.addEventListener("mouseover", () => haddlePCCtrl(true))
+            this.#element.addEventListener("mouseout", () => haddlePCCtrl(false))
         }
         this.#element.addEventListener("dblclick", haddleDBClick)
-        const that = this
 
         function haddleCtrl(e) {
             const topBar = that.#topBar
@@ -198,6 +203,25 @@ class aVideoPlayer {
             }
         }
 
+        function haddlePCCtrl(hover) {
+            const topBar = that.#topBar
+            const bottomBar = that.#bottomBar
+            const playButton = that.#element.querySelector(".playButton")
+            console.log(that)
+            if (hover) {
+                topBar.style.display = "flex"
+                bottomBar.style.display = "block"
+                playButton.style.display = "flex"
+                that.#isCtrlShow = true
+                that.#showCtrlTime = Date.now()
+            } else {
+                topBar.style.display = "none"
+                bottomBar.style.display = "none"
+                playButton.style.display = "none"
+                that.#isCtrlShow = false
+            }
+        }
+
         function haddleDBClick(e) {
             if (that.isPlay()) {
                 that.pause()
@@ -212,10 +236,6 @@ class aVideoPlayer {
 
         function haddleSpeedDown(e) {
             that.#video.playbackRate = 1
-        }
-
-        function isMobileDevice() {
-            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
 
         if (isMobileDevice()) {
@@ -270,7 +290,7 @@ class aVideoPlayer {
     getSize(callback) {
         const video = document.createElement("video");
         video.src = this.#config.src;
-        video.addEventListener('loadedmetadata', function() {
+        video.addEventListener('loadedmetadata', function () {
             var width = video.videoWidth;
             var height = video.videoHeight;
             callback(width, height)

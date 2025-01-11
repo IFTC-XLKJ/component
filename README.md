@@ -17,7 +17,7 @@ npm install vvcomponent
 ```
 
 ## 用法
-
+请访问`docs`文件夹查看文档。
 
 ## 贡献
 1. 复制此仓库。
