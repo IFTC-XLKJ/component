@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>VideoPlayer</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #player {
+            border: 1px solid #333;
+        }
+    </style>
+    <script src="eruda.js" onload="eruda.init()"></script>
+    <script src="VideoPlayer.js"></script>
+    <script src="Dragger.js"></script>
+</head>
+
+<body>
+    <h1>VideoPlayer</h1>
+    <button onclick="javascript:videoPlayer.play();">播放</button>
+    <button onclick="javascript:videoPlayer.pause();">暂停</button>
+    <div id="player"></div>
+    <script>
+        const config = {
+            src: "./loginVideoNew.mp4",
+            src: "https://static.codemao.cn/coco/course/lesson1.mp4",
+            cover: "./favicon.png",
+            loop: true,
+        }
+        const videoPlayer = new VideoPlayer(player, config)
+        videoPlayer.on("play", e => {
+            console.log("视频播放")
+        })
+        videoPlayer.on("pause", e => {
+            console.log("视频暂停")
+        })
+        videoPlayer.on("load", e => {
+            console.log("视频完成加载")
+        })
+        videoPlayer.on("canplay", e => {
+            console.log("视频可以播放")
+        })
+        videoPlayer.on("suspend", e => {
+            console.log("suspend", e)
+        })
+        videoPlayer.getSize((width, height) => {
+            console.log('视频宽度：' + width + '，视频高度：' + height);
+            addEventListener("resize", e => {
+                const scale = innerWidth / width
+                player.style.height = height * scale + "px"
+                player.style.width = width * scale + "px"
+            })
+            const scale = innerWidth / width
+            player.style.height = height * scale + "px"
+            player.style.width = width * scale + "px"
+        })
+        onerror = e => {
+            console.log(e)
+        }
+    </script>
+</body>
+
+</html>

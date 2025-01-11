@@ -6,6 +6,8 @@
     "test": "echo \"欢迎使用VV组件\" && exit 1"
   },
   "changelog": "CHANGELOG.md",
+  "readme": "README.md",
+  "homepage": "http://iftc.free.nf",
   "keywords": [
     "vvcomponent",
     "VV组件",
