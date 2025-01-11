@@ -10,9 +10,10 @@ class aDragger {
     range = null
     direction = null
     #element = null;
+    #parentElement = null;
     constructor(element, config) {
         this.#element = element;
-        this.parentElement = this.#element.parentElement
+        this.#parentElement = this.#element.parentElement
         this.#element.setAttribute("iftc-draggable", true)
         this.isDragging = false;
         this.initPosition = {
@@ -115,8 +116,8 @@ class aDragger {
             this.onDragStart(events)
         }
         if (this.isToTop) {
-            this.parentElement.removeChild(this.#element)
-            this.parentElement.appendChild(this.#element)
+            this.#parentElement.removeChild(this.#element)
+            this.#parentElement.appendChild(this.#element)
         }
         document.addEventListener('mousemove', this.onMouseMove.bind(this));
     }
@@ -140,8 +141,8 @@ class aDragger {
             this.onDragStart(events)
         }
         if (this.isToTop) {
-            this.parentElement.removeChild(this.#element)
-            this.parentElement.appendChild(this.#element)
+            this.#parentElement.removeChild(this.#element)
+            this.#parentElement.appendChild(this.#element)
         }
         document.addEventListener('touchmove', this.onTouchMove.bind(this));
     }
