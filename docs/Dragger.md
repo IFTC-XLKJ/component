@@ -50,6 +50,14 @@ const dragger = new Dragger(document.getElementById('draggable-element'), config
 获取 `Dragger` 类的配置。
 - `name`: 配置名称。
 
+### `reset()` return`void 0`
+重置 `Dragger` 类的配置。
+
+### `goto(x, y)` return`void 0`
+将元素移动到指定位置。
+- `x`: 元素的新 X 轴位置。为`null`时为当前 X 轴位置。
+- `y`: 元素的新 Y 轴位置。为`null`时为当前 Y 轴位置。
+
 ## 事件
 
 ### `onDragStart` `function`
