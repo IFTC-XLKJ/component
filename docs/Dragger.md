@@ -43,6 +43,8 @@ const dragger = new Dragger(document.getElementById('draggable-element'), config
 
 ### `setConfig(name, value)` `void`
 设置 `Dragger` 类的配置。
+- `name`: 配置名称。
+- `value`: 配置值。
 
 ### `getConfig(name)` `any`
 
