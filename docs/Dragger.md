@@ -31,11 +31,7 @@ const dragger = new Dragger(document.getElementById('draggable-element'), config
 
 ## 方法
 
-### `init()`
-Initializes the dragger and sets up the necessary event listeners.
-
-### `destroy()`
-Removes the event listeners and cleans up the dragger instance.
+## 事件
 
 ## 示例
 请前往 [Dragger.js 示例](https://github.com/IFTC-XLKJ/component/blob/main/example/Dragger.html) 了解更多示例。
