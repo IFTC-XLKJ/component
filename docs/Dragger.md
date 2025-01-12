@@ -29,34 +29,8 @@ Initializes the dragger and sets up the necessary event listeners.
 ### `destroy()`
 Removes the event listeners and cleans up the dragger instance.
 
-## Example
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dragger Example</title>
-    <style>
-        #draggable-element {
-            width: 100px;
-            height: 100px;
-            background-color: red;
-            position: absolute;
-        }
-    </style>
-</head>
-<body>
-    <div id="draggable-element"></div>
-    <script type="module">
-        import Dragger from '../class/Dragger.js';
-
-        const dragger = new Dragger(document.getElementById('draggable-element'));
-        dragger.init();
-    </script>
-</body>
-</html>
-```
+## 示例
+请前往 [Dragger.js 示例](https://github.com/IFTC-XLKJ/component/blob/main/example/Dragger.html) 了解更多示例。
 
 ## 许可证
 此项目使用 MIT 许可证。
