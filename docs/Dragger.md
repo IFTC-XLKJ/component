@@ -46,6 +46,12 @@ const dragger = new Dragger(document.getElementById('draggable-element'), config
 ### `onDragStart` `function`
 当拖拽开始时调用。
 
+### `onDrag` `function`
+当拖拽进行时调用。
+
+### `onDragEnd` `function`
+当拖拽结束时调用。
+
 ## 示例
 请前往 [Dragger.js 示例](https://github.com/IFTC-XLKJ/component/blob/main/example/Dragger.html) 了解更多示例。
 
