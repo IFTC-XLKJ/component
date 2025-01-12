@@ -47,6 +47,8 @@ const dragger = new Dragger(document.getElementById('draggable-element'), config
 - `value`: 配置值。
 
 ### `getConfig(name)` return`any`
+获取 `Dragger` 类的配置。
+- `name`: 配置名称。
 
 ## 事件
 
