@@ -2,7 +2,7 @@ const VERSION_Prop = Symbol
 class aDragger {
     _VERSION = "1.0.3";
     get VERSION() {
-        return this.VERSION;
+        return this._VERSION;
     }
     isToTop = false;
     timeStart = 0;

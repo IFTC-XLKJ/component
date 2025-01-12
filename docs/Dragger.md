@@ -21,7 +21,12 @@ import Dragger from 'your/path/to/Dragger.js';
 const dragger = new Dragger(document.getElementById('draggable-element'), config);
 ```
 
-## Methods
+## 属性
+
+### `VERSION`
+获取 `Dragger` 类的版本号。
+
+## 方法
 
 ### `init()`
 Initializes the dragger and sets up the necessary event listeners.

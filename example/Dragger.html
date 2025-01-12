@@ -48,6 +48,7 @@
             direction: null, // 拖拽方向，二选一："Horizontal" || "Vertical"，null为自由拖拽
         };
         const draggerComponent = new Dragger(dragger, config); // 创建拖拽组件实例，配置项可选
+        console.log(draggerComponent.VERSION); // 获取拖拽组件版本号
         draggerComponent.onDragStart = e => {
             console.log("开始拖动", e)
         }
