@@ -45,6 +45,11 @@ const dragger = new Dragger(document.getElementById('draggable-element'), config
 
 ### `onDragStart` `function`
 当拖拽开始时调用。
+事件参数：
+- `event`: 拖拽事件对象。
+- - `event.element`: 拖拽目标元素。
+- - `event.x`: 拖拽目标元素在 X 轴上的位置。
+- - `event.y`: 拖拽目标元素在 Y 轴上的位置。
 
 ### `onDrag` `function`
 当拖拽进行时调用。
