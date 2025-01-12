@@ -58,11 +58,11 @@ Removes the event listeners and cleans up the dragger instance.
 </html>
 ```
 
-## License
-This project is licensed under the MIT License.
+## 许可证
+此项目使用 MIT 许可证。
 
-## Contributing
-Contributions are welcome! Please submit a pull request or open an issue to discuss any changes.
+## 贡献
+欢迎贡献！请提交拉取请求或打开问题讨论任何更改。
 
 ## 联系方式
 如有任何问题或疑虑，请通过 [iftcceo@139.com](mailto:iftcceo@138.com?subject=Dragger.js%20文档反馈&body=请将问题描述清楚，以便于维护者及时处理。) 联系维护者。
