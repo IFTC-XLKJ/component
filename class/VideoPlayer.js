@@ -22,6 +22,7 @@ class aVideoPlayer {
     #isCtrlShow = true
     #showCtrlTime = Date.now()
     constructor(element, config) {
+        const that = this
         this.#element = element;
         if (config) {
             if (config.src) {
@@ -35,6 +36,15 @@ class aVideoPlayer {
             }
             if (config.height) {
                 this.#config.height = config.height
+            }
+            if (config.loop) {
+                this.#config.loop = config.loop
+            }
+            if (config.autoplay) {
+                this.#config.autoplay = config.autoplay
+            }
+            if (config.getCover) {
+                this.#config.getCover = config.getCover
             }
         }
         console.log(this.#config)
@@ -52,6 +62,27 @@ class aVideoPlayer {
         this.#pauseBtn = this.#element.querySelector(".pause")
         video.onloadedmetadata = e => {
             this.#emit("load", e)
+            if (this.#config.loop) {
+                video.loop = true
+            }
+            if (this.#config.autoplay) {
+                video.play()
+            }
+            if (!this.#config.getCover) {
+                return void 0
+            }
+            video.currentTime = 0
+            video.addEventListener('seeked', function () {
+                var canvas = document.createElement('canvas');
+                canvas.style.display = 'none';
+                document.body.appendChild(canvas);
+                var ctx = canvas.getContext('2d');
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                var dataURL = canvas.toDataURL('image/png');
+                that.#emit("cover", dataURL)
+            });
         }
         video.onplay = e => {
             this.#lastPlay = false
@@ -82,17 +113,22 @@ class aVideoPlayer {
         }
         this.#playBtn.style.display = "none"
         this.#element.oncontextmenu = e => {
+            e.preventDefault()
             const oldmenu = document.body.querySelector(".menu")
             if (oldmenu) {
                 oldmenu.remove()
             }
             const menu = document.createElement("div")
             menu.classList.add("menu")
-            menu.style.left = e.pageX + "px"
-            menu.style.top = e.pageY + "px"
+            console.log(e)
+            menu.style.left = e.clientX + "px"
+            menu.style.top = e.clientY + "px"
             const version = document.createElement("span")
             version.classList.add("menu-item")
             version.innerText = "播放器版本：" + this.version()
+            menu.oncontextmenu = e => {
+                e.preventDefault()
+            }
             menu.appendChild(version)
             this.#element.addEventListener("click", e => {
                 menu.remove()
@@ -153,7 +189,6 @@ class aVideoPlayer {
             this.#dragger.goto(e.clientX - 6, null)
             video.currentTime = video.duration * draggedPer
         })
-        const that = this
         if (isMobileDevice()) {
             this.#element.addEventListener("click", haddleCtrl)
             this.#element.addEventListener("touchstart", haddleSpeedUp)
@@ -162,6 +197,7 @@ class aVideoPlayer {
         if (!isMobileDevice()) {
             this.#element.addEventListener("mouseover", () => haddlePCCtrl(true))
             this.#element.addEventListener("mouseout", () => haddlePCCtrl(false))
+            this.#element.setAttribute("tabindex", "0");
             this.#element.addEventListener("keydown", haddleShortcutKey)
         }
         this.#element.addEventListener("dblclick", haddleDBClick)
@@ -220,6 +256,21 @@ class aVideoPlayer {
                 bottomBar.style.display = "none"
                 playButton.style.display = "none"
                 that.#isCtrlShow = false
+            }
+        }
+
+        function haddleShortcutKey(e) {
+            console.log(e.key)
+            if (e.key == " ") {
+                if (that.isPlay()) {
+                    that.pause()
+                } else {
+                    that.play()
+                }
+            } else if (e.key == "ArrowLeft") {
+                that.#video.currentTime -= 5
+            } else if (e.key == "ArrowRight") {
+                that.#video.currentTime += 5
             }
         }
 
@@ -350,7 +401,7 @@ function getVideoPlayerStyle(config) {
 }
 
 function mainVideoPlayer(config, element, id) {
-    return `<video id="${id}" class="video-player-global" src="${config.src}" poster="${config.cover}" style="width: 100%;height: 100%;"${config.loop ? " loop" : ""}></video>
+    return `<video id="${id}" class="video-player-global" crossorigin="anonymous" src="${config.src}" poster="${config.cover}" style="width: 100%;height: 100%;"${config.loop ? " loop" : ""}></video>
 <div class="video-player-global top-bar" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0), #33333380);bottom: ${element.offsetHeight}px;width: 100%;height: 30px;"></div>
 <div class="video-player-global bottom-bar" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #33333380);bottom: 65px;width: 100%;height: 30px;">
     <div class="video-player-global progress-background" style="width: 100%;height: 5px;background-color: lightgrey;bottom: 0px;left: 0px;"></div>

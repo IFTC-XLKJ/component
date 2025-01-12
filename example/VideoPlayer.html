@@ -59,6 +59,9 @@
             player.style.height = height * scale + "px"
             player.style.width = width * scale + "px"
         })
+        videoPlayer.on("cover", dataURL => {
+            console.log("封面", dataURL)
+        })
         onerror = e => {
             console.log(e)
         }
