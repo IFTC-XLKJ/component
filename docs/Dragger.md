@@ -53,9 +53,20 @@ const dragger = new Dragger(document.getElementById('draggable-element'), config
 
 ### `onDrag` `function`
 当拖拽进行时调用。
+事件参数：
+- `event`: 拖拽事件对象。
+- - `event.element`: 拖拽目标元素。
+- - `event.x`: 拖拽目标元素在 X 轴上的位置。
+- - `event.y`: 拖拽目标元素在 Y 轴上的位置。
 
 ### `onDragEnd` `function`
 当拖拽结束时调用。
+事件参数：
+- `event`: 拖拽事件对象。
+- - `event.element`: 拖拽目标元素。
+- - `event.x`: 拖拽目标元素在 X 轴上的位置。
+- - `event.y`: 拖拽目标元素在 Y 轴上的位置。
+- - `event.duration`: 拖拽持续时间。
 
 ## 示例
 请前往 [Dragger.js 示例](https://github.com/IFTC-XLKJ/component/blob/main/example/Dragger.html) 了解更多示例。
