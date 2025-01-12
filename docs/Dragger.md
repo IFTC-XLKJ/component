@@ -18,6 +18,16 @@ import Dragger from 'your/path/to/Dragger.js';
 
 ```javascript
 // 创建一个 Dragger 实例
+const config = { // 配置
+    isToTop: true, // 是否置顶
+    range: { // 拖拽范围
+        x1: 0,
+        y1: 0,
+        x2: innerWidth,
+        y2: innerHeight
+    }, // 该示例拖拽范围为整个页面
+    direction: null, // 拖拽方向，二选一："Horizontal" || "Vertical"，null为自由拖拽
+};
 const dragger = new Dragger(document.getElementById('draggable-element'), config);
 ```
 
