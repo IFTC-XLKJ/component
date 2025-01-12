@@ -11,6 +11,10 @@ class aDragger {
     direction = null
     #element = null;
     #parentElement = null;
+    _isDragging = false;
+    get isDragging() {
+        return this._isDragging;
+    }
     constructor(element, config) {
         this.#element = element;
         this.#parentElement = this.#element.parentElement

@@ -23,8 +23,11 @@ const dragger = new Dragger(document.getElementById('draggable-element'), config
 
 ## 属性
 
-### `VERSION`
+### `VERSION` `只读` `string`
 获取 `Dragger` 类的版本号。
+
+### `isDragging` `只读` `boolean`
+获取当前是否正在拖动。
 
 ## 方法
 
