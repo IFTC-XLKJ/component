@@ -2,7 +2,12 @@ class aTimer {
     #timeStart = 0;
     #time = 0;
     #marked = []
-    constructor() {}
+    _isTiming = false
+    get isTiming() {
+        this._isTiming = !!this.#timeStart
+        return this._isTiming
+    }
+    constructor() { }
     start() {
         this.#timeStart = Date.now()
     }
