@@ -43,6 +43,19 @@ timer.stop(); // 停止计时器
 ### `clear()` `void 0`
 清除计时器。
 
+### `mark()` `void 0`
+标记当前时间。
+
+### `getMark()` `Array<Number>`
+获取标记的时间（以毫秒为单位）。
+
+### `markCount()` `Number`
+获取标记的次数。
+
+### `formatTime(milliseconds)` `String`
+格式化时间，格式为：`HH:MM:SS.ms`，例如：`00:00:00.000`。
+ - milliseconds - 以毫秒为单位的时间。
+
 ## 贡献
 
 欢迎提交问题和贡献代码。请参阅贡献指南以了解更多信息。
