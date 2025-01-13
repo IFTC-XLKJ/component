@@ -36,9 +36,6 @@ class aTimer {
         this.#time = 0
         this.#timeStart = 0
     }
-    isTiming() {
-        return !!this.#timeStart
-    }
 
     formatTime(milliseconds) {
         let hours = Math.floor(milliseconds / 3600000);

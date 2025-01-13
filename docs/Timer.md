@@ -24,27 +24,13 @@ timer.get(); // 获取当前时间
 timer.stop(); // 停止计时器
 ```
 
-## API
+## 属性
 
-### `Timer(interval)`
+### `isTiming` `只读` `Boolean`
 
-创建一个新的计时器实例。
+## 方法
 
-- `interval`：时间间隔（毫秒）
-
-### `start(callback)`
-
-启动计时器，并在每个时间间隔后执行回调函数。
-
-- `callback`：要执行的回调函数
-
-### `stop()`
-
-停止计时器。
-
-### `reset()`
-
-重置计时器。
+### `start()`
 
 ## 贡献
 
