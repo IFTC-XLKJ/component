@@ -22,7 +22,7 @@ npm install vvcomponent
 ## 贡献
 1. 复制此仓库。
 2. 修改代码。
-3. 联系我们，邮箱：`iftcceo@139.com`。
+3. 联系我们，邮箱：[iftcceo@139.com](mailto:iftcceo@139.com?subject=VV组件代码提交&body=请将修改后的代码发送到iftcceo@139.com，文件格式必须为压缩包文件)。
 4. 提交代码。
 
 ## 许可证
