@@ -39,5 +39,13 @@ class aTimer {
     isTiming() {
         return !!this.#timeStart
     }
+
+    formatTime(milliseconds) {
+        let hours = Math.floor(milliseconds / 3600000);
+        let minutes = Math.floor((milliseconds % 3600000) / 60000);
+        let seconds = Math.floor((milliseconds % 60000) / 1000);
+        let ms = milliseconds % 1000;
+        return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${String(ms).padStart(3, '0')}`;
+    }
 }
 window.Timer = aTimer

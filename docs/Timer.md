@@ -10,7 +10,7 @@
 ```
 注：如有需要，也可以使用ES6模块导入：
 ```javascript
-import Dragger from 'your/path/to/Timer.js';
+import Timer from 'your/path/to/Timer.js';
 ```
 
 ## 用法
@@ -18,19 +18,10 @@ import Dragger from 'your/path/to/Timer.js';
 以下是一个简单的使用示例：
 
 ```javascript
-import Timer from 'timer-component';
-
-const timer = new Timer(1000); // 设置时间间隔为1000毫秒
-
-timer.start(() => {
-    console.log('计时器触发');
-});
-
-// 停止计时器
-timer.stop();
-
-// 重置计时器
-timer.reset();
+const timer = new Timer(); // 创建一个计时器实例
+timer.start(); // 启动计时器
+timer.get(); // 获取当前时间
+timer.stop(); // 停止计时器
 ```
 
 ## API
