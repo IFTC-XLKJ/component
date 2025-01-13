@@ -1,7 +1,7 @@
 # Dragger.js(元素拖拽器) 文档
 
 ## 预览
-`Dragger.js` 是位于 `class` 目录中的一个 JavaScript 类。它提供了在网页中拖动元素的功能。
+`Dragger.js` 提供了在网页中拖动元素的功能。
 
 ## 引入
 要使用 `Dragger.js`，请确保从正确的路径导入它以包含在您的项目中：
