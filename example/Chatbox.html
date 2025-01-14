@@ -34,7 +34,7 @@
             content: '<a>Name</a> 拍了拍 <a>Name</a> 的xxx'
         })
         const chat_form = document.getElementById('chat-form');
-        chat_form.addEventListener('submit', (e) => {
+        chat_form.addEventListener('submit', e => {
             e.preventDefault();
             const message = document.getElementById('message').value;
             chat_box.addMessage({
@@ -42,6 +42,9 @@
                 content: [{
                     type: 'msg',
                     msg: message
+                }, {
+                    type: 'img',
+                    url: '4096.jpg'
                 }],
                 avatar: "https://creation.codemao.cn/884/l4zc8mlq.png?imageMogr2/thumbnail/!200x200r/blur/1x0/quality/100|imageslim",
                 name: 'Creation',
@@ -50,7 +53,7 @@
             });
             document.getElementById('message').value = '';
         });
-const a = []
+        const a = []
         a.push({
             type: 'ta',
             content: [{
@@ -84,13 +87,91 @@ const a = []
             }, {
                 type: 'img',
                 url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
             }],
             avatar: "https://creation.codemao.cn/884/l4zc8mlq.png?imageMogr2/thumbnail/!200x200r/blur/1x0/quality/100|imageslim",
             name: 'Creation',
             title: '<em>Lv.114514</em> NB',
             titleType: 'group-owner'
         });
-chat_box.addMessages(a)
+        chat_box.addMessages(a)
         receive.onclick = e => {
             chat_box.addMessage({
                 type: 'ta',

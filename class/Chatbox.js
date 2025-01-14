@@ -83,13 +83,10 @@ class aChatbox {
             this.#chatID = this.#chatID + 1
         }
         setTimeout(() => {
-            if (!this.#isBottom && type != "own") {
-                return false;
-            }
-            this.#autoScroll = true
             this.toBottom()
+            // this.#autoScroll = true
             document.querySelector(`[iftc-chat-id="${id}"]`).classList.add(type == "own" ? "send-own" : "send")
-        }, 10)
+        }, 50)
     }
     addMessages(msgArr) {
         for (var i = 0; i < msgArr.length; i++) {
