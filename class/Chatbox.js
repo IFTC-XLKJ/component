@@ -123,6 +123,22 @@ class aChatbox {
         this.#chatbox.innerHTML = "";
         this.#chatID = this.#config.initID;
     }
+
+    setConfig(name, value) {
+        if (name == "taColor") {
+            this.#config.taColor = value
+        }
+        if (name == "taBgcolor") {
+            this.#config.ownColor = value
+        }
+        if (name == "ownColor") {
+            this.#config.ownColor = value
+        }
+        if (name == "ownBgcolor") {
+            this.#config.bgcolor = value
+        }
+        this.setStyle()
+    }
 }
 window.Chatbox = aChatbox;
 

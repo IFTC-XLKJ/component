@@ -58,6 +58,11 @@ chatbox.addMessage({
 ### `clearChat()` `void 0`
 清空聊天框中的所有消息。
 
+### `setConfig(name, value)` `void 0`
+设置配置。
+- name - 配置名称。
+- value - 配置值。
+
 ## 贡献
 
 欢迎提交问题和贡献代码。请参阅贡献指南以了解更多信息。
