@@ -84,7 +84,6 @@ class aChatbox {
         }
         setTimeout(() => {
             this.toBottom()
-            // this.#autoScroll = true
             document.querySelector(`[iftc-chat-id="${id}"]`).classList.add(type == "own" ? "send-own" : "send")
         }, 50)
     }
@@ -113,6 +112,11 @@ class aChatbox {
             top: this.#chatbox.scrollHeight,
             behavior: "smooth"
         })
+    }
+
+    getChatCount() {
+        const messageBoxes = document.querySelectorAll(`[iftc-id="chatbox_${this.#id}"] .message-box`);
+        return messageBoxes.length;
     }
 }
 window.Chatbox = aChatbox;

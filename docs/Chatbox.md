@@ -52,6 +52,9 @@ chatbox.addMessage({
 ### `toBottom()` `void 0`
 将聊天框滚动到最底部。
 
+### `getChatCount()` `Number`
+获取聊天框中的消息数量。
+
 ## 贡献
 
 欢迎提交问题和贡献代码。请参阅贡献指南以了解更多信息。
