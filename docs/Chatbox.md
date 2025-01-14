@@ -63,6 +63,10 @@ chatbox.addMessage({
 - name - 配置名称。
 - value - 配置值。
 
+### `getConfig(name)` `Any`
+获取配置。
+- name - 配置名称。
+
 ## 贡献
 
 欢迎提交问题和贡献代码。请参阅贡献指南以了解更多信息。

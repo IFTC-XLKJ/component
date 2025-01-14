@@ -139,6 +139,22 @@ class aChatbox {
         }
         this.setStyle()
     }
+
+    getConfig(name) {
+        if (name == "taColor") {
+            return this.#config.taColor
+        }
+        if (name == "taBgcolor") {
+            return this.#config.ownColor
+        }
+        if (name == "ownColor") {
+            return this.#config.ownColor
+        }
+        if (name == "ownBgcolor") {
+            return this.#config.bgcolor
+        }
+        return null;
+    }
 }
 window.Chatbox = aChatbox;
 
