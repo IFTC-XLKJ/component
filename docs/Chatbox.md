@@ -67,6 +67,21 @@ chatbox.addMessage({
 获取配置。
 - name - 配置名称。
 
+## 事件
+
+### `send` `function(chatID, option)`
+发送消息时触发。
+- chatID - 消息ID。
+- option - 消息选项。
+
+### `sends` `function(chatID, msgArr)`
+发送多条消息时触发。
+- chatID - 消息ID。
+- msgArr - 消息数组。
+
+### `clear` `function()`
+清空聊天框时触发。
+
 ## 贡献
 
 欢迎提交问题和贡献代码。请参阅贡献指南以了解更多信息。

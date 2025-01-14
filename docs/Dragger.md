@@ -60,7 +60,7 @@ const dragger = new Dragger(document.getElementById('draggable-element'), config
 
 ## 事件
 
-### `onDragStart` `function`
+### `onDragStart` `function(event)`
 当拖拽开始时调用。
 事件参数：
 - `event`: 拖拽事件对象。
@@ -68,7 +68,7 @@ const dragger = new Dragger(document.getElementById('draggable-element'), config
 - - `event.x`: 拖拽目标元素在 X 轴上的位置。
 - - `event.y`: 拖拽目标元素在 Y 轴上的位置。
 
-### `onDrag` `function`
+### `onDrag` `function(event)`
 当拖拽进行时调用。
 事件参数：
 - `event`: 拖拽事件对象。
@@ -76,7 +76,7 @@ const dragger = new Dragger(document.getElementById('draggable-element'), config
 - - `event.x`: 拖拽目标元素在 X 轴上的位置。
 - - `event.y`: 拖拽目标元素在 Y 轴上的位置。
 
-### `onDragEnd` `function`
+### `onDragEnd` `function(event)`
 当拖拽结束时调用。
 事件参数：
 - `event`: 拖拽事件对象。

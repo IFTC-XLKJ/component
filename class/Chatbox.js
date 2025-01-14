@@ -86,12 +86,14 @@ class aChatbox {
             this.toBottom()
             document.querySelector(`[iftc-chat-id="${id}"]`).classList.add(type == "own" ? "send-own" : "send")
         }, 50)
+        this.#emit("send", this.#chatID, options)
     }
     addMessages(msgArr) {
         for (var i = 0; i < msgArr.length; i++) {
             const options = msgArr[i]
             this.addMessage(options)
         }
+        this.#emit("sends", this.#chatID, msgArr)
     }
     getID() {
         return this.#id;
@@ -122,6 +124,7 @@ class aChatbox {
     clearChat() {
         this.#chatbox.innerHTML = "";
         this.#chatID = this.#config.initID;
+        this.#emit("clear");
     }
 
     setConfig(name, value) {
@@ -154,6 +157,19 @@ class aChatbox {
             return this.#config.bgcolor
         }
         return null;
+    }
+
+    #events = {};
+    on(name, callback) {
+        if (!this.#events[name]) {
+            this.#events[name] = [];
+        }
+        this.#events[name].push(callback);
+    }
+    #emit(name, ...args) {
+        if (this.#events[name]) {
+            this.#events[name].forEach(callback => callback(...args));
+        }
     }
 }
 window.Chatbox = aChatbox;
