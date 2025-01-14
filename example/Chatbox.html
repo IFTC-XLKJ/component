@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Chatbox</title>
+    <script src="/class/Chatbox.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div id="chatbox" style="width: calc(100vw - 20px);height: calc(100vh - 100px);"></div>
+        <form id="chat-form">
+            <input type="text" id="message" placeholder="Type your message here..." required>
+            <button type="submit">Send</button>
+        </form>
+        <button id="receive">receive</button>
+    </main>
+    <script>
+        const chat_box = new Chatbox(chatbox);
+        console.log(chat_box.getID())
+        chat_box.addMessage({
+            type: 'system',
+            content: '00:00'
+        })
+        chat_box.addMessage({
+            type: 'system',
+            content: '<a>Name</a> 拍了拍 <a>Name</a> 的xxx'
+        })
+        const chat_form = document.getElementById('chat-form');
+        chat_form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const message = document.getElementById('message').value;
+            chat_box.addMessage({
+                type: 'own',
+                content: [{
+                    type: 'msg',
+                    msg: message
+                }],
+                avatar: "https://creation.codemao.cn/884/l4zc8mlq.png?imageMogr2/thumbnail/!200x200r/blur/1x0/quality/100|imageslim",
+                name: 'Creation',
+                title: '<em>Lv.114514</em> NB',
+                titleType: 'group-owner'
+            });
+            document.getElementById('message').value = '';
+        });
+const a = []
+        a.push({
+            type: 'ta',
+            content: [{
+                type: 'msg',
+                msg: '114514'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }],
+            avatar: "https://creation.codemao.cn/884/l4zc8mlq.png?imageMogr2/thumbnail/!200x200r/blur/1x0/quality/100|imageslim",
+            name: 'Creation',
+            title: '<em>Lv.114514</em> NB',
+            titleType: 'group-owner'
+        });
+        a.push({
+            type: 'ta',
+            content: [{
+                type: 'img',
+                url: '4096.jpg'
+            }],
+            avatar: "https://creation.codemao.cn/884/l4zc8mlq.png?imageMogr2/thumbnail/!200x200r/blur/1x0/quality/100|imageslim",
+            name: 'Creation',
+            title: '<em>Lv.114514</em> NB',
+            titleType: 'group-owner'
+        });
+        a.push({
+            type: 'ta',
+            content: [{
+                type: 'img',
+                url: '4096.jpg'
+            }, {
+                type: 'img',
+                url: '4096.jpg'
+            }],
+            avatar: "https://creation.codemao.cn/884/l4zc8mlq.png?imageMogr2/thumbnail/!200x200r/blur/1x0/quality/100|imageslim",
+            name: 'Creation',
+            title: '<em>Lv.114514</em> NB',
+            titleType: 'group-owner'
+        });
+chat_box.addMessages(a)
+        receive.onclick = e => {
+            chat_box.addMessage({
+                type: 'ta',
+                content: [{
+                    type: 'msg',
+                    msg: '114514'
+                }, {
+                    type: 'img',
+                    url: '4096.jpg'
+                }],
+                avatar: "https://creation.codemao.cn/884/l4zc8mlq.png?imageMogr2/thumbnail/!200x200r/blur/1x0/quality/100|imageslim",
+                name: 'Creation',
+                title: '<em>Lv.114514</em> NB',
+                titleType: 'group-owner'
+            });
+        }
+    </script>
+</body>
+
+</html>

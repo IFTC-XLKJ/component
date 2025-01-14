@@ -149,21 +149,21 @@ function getChatboxStyle(config, chatbox) {
     animation-timing-function: ease-in;
 }
 .message-container .avatar {
-   width: 40px;
-   height: fit-content;
+    width: 40px;
+    height: fit-content;
 }
 .message-container .avatar img {
-   width: 30px;
-   height: 30px;
-   margin-left: 10px;
-   border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 50%;
 }
 .message-container .main {
-   display: grid;
-   grid-template-rows: auto auto;
+    display: grid;
+    grid-template-rows: auto auto;
 }
 .message-container .head {
-   display: inline-block;
+    display: inline-block;
 }
 .message-container .name {
     color: #aaa;
@@ -214,19 +214,19 @@ function getChatboxStyle(config, chatbox) {
     animation-timing-function: ease-in;
 }
 .message-container-own .avatar {
-     width: 40px;
-     height: fit-content;
+    width: 40px;
+    height: fit-content;
 }
 .message-container-own .avatar img {
-     width: 30px;
-     height: 30px;
-     margin-right: 10px;
-     margin-left: 10px;
-     border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    border-radius: 50%;
 }
 .message-container-own .main {
-     display: grid;
-     grid-template-rows: auto auto;
+    display: grid;
+    grid-template-rows: auto auto;
 }
 .message-container-own .head {
     display: inline-block;
