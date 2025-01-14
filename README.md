@@ -28,3 +28,6 @@ npm install vvcomponent
 
 ## 许可证
 该项目使用 MIT 许可证。许可证详情请见 `LICENSE` 文件。
+
+## 赞助
+![赞助](./sponsor.jpg)
