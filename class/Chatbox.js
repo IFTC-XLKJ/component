@@ -118,6 +118,11 @@ class aChatbox {
         const messageBoxes = document.querySelectorAll(`[iftc-id="chatbox_${this.#id}"] .message-box`);
         return messageBoxes.length;
     }
+
+    clearChat() {
+        this.#chatbox.innerHTML = "";
+        this.#chatID = this.#config.initID;
+    }
 }
 window.Chatbox = aChatbox;
 

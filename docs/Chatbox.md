@@ -55,6 +55,9 @@ chatbox.addMessage({
 ### `getChatCount()` `Number`
 获取聊天框中的消息数量。
 
+### `clearChat()` `void 0`
+清空聊天框中的所有消息。
+
 ## 贡献
 
 欢迎提交问题和贡献代码。请参阅贡献指南以了解更多信息。
