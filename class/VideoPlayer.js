@@ -420,3 +420,5 @@ function mainVideoPlayer(config, element, id) {
     </svg>
 </button>`
 }
+console.log("VideoPlayer.js已加载")
+console.log("文档：/docs/VideoPlayer.md")

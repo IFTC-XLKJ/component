@@ -504,3 +504,5 @@ function haddleUrl(text) {
     }
     return newText
 }
+console.log("Chatbox.js已加载")
+console.log("文档：/docs/Chatbox.md")
