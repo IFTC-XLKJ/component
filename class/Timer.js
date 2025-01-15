@@ -46,3 +46,5 @@ class aTimer {
     }
 }
 window.Timer = aTimer
+console.log("Timer.js已加载")
+console.log("文档：/docs/Timer.md")

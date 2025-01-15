@@ -19,7 +19,7 @@ class aDragger {
         this.#element = element;
         this.#parentElement = this.#element.parentElement
         this.#element.setAttribute("iftc-draggable", true)
-        this.isDragging = false;
+        this._isDragging = false;
         this.initPosition = {
             x: this.#element.offsetLeft,
             y: this.#element.offsetTop
@@ -104,7 +104,7 @@ class aDragger {
 
     onMouseDown(e) {
         e.preventDefault();
-        this.isDragging = true;
+        this._isDragging = true;
         this.initPosition = {
             x: e.clientX,
             y: e.clientY
@@ -128,7 +128,7 @@ class aDragger {
 
     onTouchStart(e) {
         e.preventDefault();
-        this.isDragging = true;
+        this._isDragging = true;
         const touch = e.touches[0];
         this.initPosition = {
             x: touch.clientX,
@@ -152,7 +152,7 @@ class aDragger {
     }
 
     onMouseMove(e) {
-        if (!this.isDragging) return;
+        if (!this._isDragging) return;
         if (this.direction == "Horizontal" || this.direction == null) {
             const dx = e.clientX - this.initPosition.x;
             this.currentPosition.x += dx;
@@ -216,7 +216,7 @@ class aDragger {
     }
 
     onTouchMove(e) {
-        if (!this.isDragging) return;
+        if (!this._isDragging) return;
         const touch = e.touches[0];
         if (touch.target != this.#element) return;
         if (this.direction == "Horizontal" || this.direction == null) {
@@ -279,7 +279,7 @@ class aDragger {
     }
 
     onMouseUp(e) {
-        this.isDragging = false;
+        this._isDragging = false;
         this.timeEnd = Date.now()
         const duration = this.timeEnd - this.timeStart
         const events = {
@@ -298,7 +298,7 @@ class aDragger {
     }
 
     onTouchEnd(e) {
-        this.isDragging = false;
+        this._isDragging = false;
         this.timeEnd = Date.now()
         const duration = this.timeEnd - this.timeStart
         const events = {
