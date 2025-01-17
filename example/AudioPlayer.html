@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Player</title>
+    <script src="/class/AudioPlayer.js"></script>
+</head>
+<body>
+    <div id="player"></div>
+    <script>
+        const config = {
+            src: "春风十里报新年.mp3",
+            src: "China-X.mp3",
+            src: "China-E.mp3"
+        }
+        const audioPlayer = new AudioPlayer(player, config);
+        audioPlayer.play();
+    </script>
+</body>
+</html>
