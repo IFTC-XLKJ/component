@@ -8,6 +8,7 @@ class aVideoPlayer {
         loop: false,
         autoplay: false,
         muted: false,
+        volume: 1,
     }
     #video = null
     #id = Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2);
@@ -55,6 +56,9 @@ class aVideoPlayer {
             if (config.muted) {
                 this.#config.muted = config.muted
             }
+            if (config.volume || config.volume == 0) {
+                this.#config.volume = config.volume
+            }
         }
         console.log(this.#config)
         const id = `videoplayer_${this.#id}`
@@ -79,6 +83,9 @@ class aVideoPlayer {
             }
             if (this.#config.muted) {
                 video.muted = true
+            }
+            if (this.#config.volume || this.#config.volume == 0) {
+                video.volume = this.#config.volume
             }
             if (!this.#config.getCover) {
                 return void 0
