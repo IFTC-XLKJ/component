@@ -6,9 +6,11 @@ class aAudioPlayer {
         muted: false,
         volume: 1,
     };
+    #element = null;
     #audio = null;
     #events = {};
     constructor(element, config) {
+        this.#element = element;
         this.#audio = new Audio();
         if (config) {
             if (config.src) {
@@ -40,6 +42,23 @@ class aAudioPlayer {
                 this.#audio.muted = true;
             }
         }
+        this.#audio.addEventListener("ended", e => {
+            this.#emit("ended", e);
+        });
+        this.#audio.addEventListener("error", e => {
+            this.#emit("error", e);
+        });
+        this.#audio.addEventListener("playing", e => {
+            this.#emit("playing", e);
+        });
+        this.#audio.addEventListener("waiting", e => {
+            this.#emit("waiting", e);
+        });
+        this.#audio.addEventListener("canplay", e => {
+            this.#emit("canplay", e);
+        });
+        this.#audio.addEventListener("canplaythrough", e => {
+        });
     }
     play() {
         return this.#audio.play();

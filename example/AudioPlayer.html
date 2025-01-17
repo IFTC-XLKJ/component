@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Audio Player</title>
     <script src="/class/AudioPlayer.js"></script>
 </head>
+
 <body>
     <div id="player"></div>
     <script>
@@ -15,7 +17,31 @@
             src: "China-E.mp3"
         }
         const audioPlayer = new AudioPlayer(player, config);
-        audioPlayer.play();
+        audioPlayer.on("play", () => {
+            console.log("play");
+        });
+        audioPlayer.on("pause", () => {
+            console.log("pause");
+        });
+        audioPlayer.on("ended", () => {
+            console.log("ended");
+        });
+        audioPlayer.on("error", () => {
+            console.log("error");
+        });
+        audioPlayer.on("timeupdate", () => {
+            console.log("timeupdate");
+        });
+        audioPlayer.on("loadedmetadata", () => {
+            console.log("loadedmetadata");
+        });
+        audioPlayer.on("loadeddata", () => {
+            console.log("loadeddata");
+        });
+        audioPlayer.on("canplay", () => {
+            audioPlayer.play();
+        });
     </script>
 </body>
+
 </html>
