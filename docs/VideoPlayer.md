@@ -27,35 +27,60 @@ const videoPlayer = new VideoPlayer(playerElement, config);
 
 ## 属性
 
-### `isTiming` `只读` `Boolean`
-获取计时器是否正在计时。
+### `isPlay` `只读` `Boolean`
+播放器是否正在播放。
 
 ## 方法
 
-### `start()` `void 0`
-启动计时器。
+### `play()`
+播放视频。
 
-### `stop()` `void 0`
-停止计时器。
+### `pause()`
+暂停视频。
 
-### `get()` `Number`
-获取当前时间（以毫秒为单位）。
+### `load()`
+重新加载视频。
 
-### `clear()` `void 0`
-清除计时器。
+### `getDuration()` `Number`
+获取视频的总时长。
 
-### `mark()` `void 0`
-标记当前时间。
+### `getProgress()` `Number`
+获取当前播放进度。
 
-### `getMark()` `Array<Number>`
-获取标记的时间（以毫秒为单位）。
+### `setProgress(progress)`
+设置当前播放进度。
+ - `progress`: 进度值 `Number`
 
-### `markCount()` `Number`
-获取标记的次数。
+### `setUrl(url)`
+设置视频的URL。
+ - `url`: 视频URL `String`
 
-### `formatTime(milliseconds)` `String`
-格式化时间，格式为：`HH:MM:SS.ms`，例如：`00:00:00.000`。
- - milliseconds - 以毫秒为单位的时间。
+### `getSize(callback)`
+获取视频的尺寸。
+ - `callback`: 回调函数 `Function(width, height)`
+
+### `getReadyState()` `Number`
+获取视频的就绪状态。
+
+## 事件
+
+### `play` `Function(event)`
+播放事件。
+
+### `pause` `Function(event)`
+暂停事件。
+
+### `load` `Function(event)`
+加载完成事件。
+
+### `canplay` `Function(event)`
+播放器可以播放事件。
+
+### `suspend` `Function(event)`
+播放器加载数据事件。
+
+### `cover` `Function(event)`
+获取视频第一帧画面完成事件。
 
 ## 贡献
 

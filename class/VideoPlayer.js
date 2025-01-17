@@ -6,6 +6,8 @@ class aVideoPlayer {
         width: "100%",
         height: "100%",
         loop: false,
+        autoplay: false,
+        muted: false,
     }
     #video = null
     #id = Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2);
@@ -21,6 +23,10 @@ class aVideoPlayer {
     #pauseBtn = null
     #isCtrlShow = true
     #showCtrlTime = Date.now()
+    _isPlay = false
+    get isPlay() {
+        return this._isPlay
+    }
     constructor(element, config) {
         const that = this
         this.#element = element;
@@ -46,6 +52,9 @@ class aVideoPlayer {
             if (config.getCover) {
                 this.#config.getCover = config.getCover
             }
+            if (config.muted) {
+                this.#config.muted = config.muted
+            }
         }
         console.log(this.#config)
         const id = `videoplayer_${this.#id}`
@@ -68,6 +77,9 @@ class aVideoPlayer {
             if (this.#config.autoplay) {
                 video.play()
             }
+            if (this.#config.muted) {
+                video.muted = true
+            }
             if (!this.#config.getCover) {
                 return void 0
             }
@@ -85,12 +97,14 @@ class aVideoPlayer {
             });
         }
         video.onplay = e => {
+            this._isPlay = true
             this.#lastPlay = false
             this.#playBtn.style.display = "flex"
             this.#pauseBtn.style.display = "none"
             this.#emit("play", e)
         }
         video.onpause = e => {
+            this._isPlay = false
             this.#lastPlay = true
             this.#playBtn.style.display = "none"
             this.#pauseBtn.style.display = "flex"
