@@ -6,7 +6,7 @@ class SHA1 {
      * @return {boolean} 匹配结果
      * @desc 判断加密字符串与原字符串是否匹配。
      */
-    static isMatching(s, t) {
+    isMatching(s, t) {
         return s == this.sha1(t) ? true : false
     }
 
@@ -16,7 +16,7 @@ class SHA1 {
      * @return {string} JSON格式的字符串
      * @desc 普通字符转JSON格式的字符串
      */
-    static toJSON(...arg) {
+    toJSON(...arg) {
         let jsonText = '{'
         let spText = ''
         arg.forEach((item) => {
@@ -34,7 +34,7 @@ class SHA1 {
      * @return {string} JSON格式的字符串
      * @desc 普通字符转Url格式的字符串
      */
-    static toUrl(...arg) {
+    toUrl(...arg) {
         let urlText = ''
         let spText = ''
         arg.forEach((item) => {
@@ -51,7 +51,7 @@ class SHA1 {
      * @return {string} 加密后的字符串
      * @desc SHA1加密
      */
-    static sha1(s) {
+    sha1(s) {
         var i, r = [], c, x;
         for (i = 0; i < s.length; i++)
             if ((c = s.charCodeAt(i)) < 0x80) r.push(c);
