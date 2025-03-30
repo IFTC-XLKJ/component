@@ -7,8 +7,8 @@ class aDragger {
     isToTop = false;
     timeStart = 0;
     timeEnd = 0;
-    range = null
-    direction = null
+    range = null;
+    direction = null;
     #element = null;
     #parentElement = null;
     _isDragging = false;
@@ -17,8 +17,8 @@ class aDragger {
     }
     constructor(element, config) {
         this.#element = element;
-        this.#parentElement = this.#element.parentElement
-        this.#element.setAttribute("iftc-draggable", true)
+        this.#parentElement = this.#element.parentElement;
+        this.#element.setAttribute("iftc-draggable", true);
         this._isDragging = false;
         this.initPosition = {
             x: this.#element.offsetLeft,
@@ -32,32 +32,32 @@ class aDragger {
         this.#element.style.position = 'absolute';
         if (config) {
             if (config.isToTop) {
-                this.isToTop = true
+                this.isToTop = true;
             }
             if (config.range) {
-                this.range = config.range
+                this.range = config.range;
                 if (this.range) {
                     if (!this.range.x1 && this.range.x1 != 0) {
-                        missParam("x1")
-                        this.range = null
+                        missParam("x1");
+                        this.range = null;
                     }
                 }
                 if (this.range) {
                     if (!this.range.y1 && this.range.y1 != 0) {
-                        missParam("y1")
-                        this.range = null
+                        missParam("y1");
+                        this.range = null;
                     }
                 }
                 if (this.range) {
                     if (!this.range.x2 && this.range.x2 != 0) {
-                        missParam("x2")
-                        this.range = null
+                        missParam("x2");
+                        this.range = null;
                     }
                 }
                 if (this.range) {
                     if (!this.range.y2 && this.range.y2 != 0) {
-                        missParam("y2")
-                        this.range = null
+                        missParam("y2");
+                        this.range = null;
                     }
                 }
                 if (this.range) {
@@ -66,33 +66,33 @@ class aDragger {
                         y1,
                         x2,
                         y2
-                    } = this.range
-                    const w = x2 - x1
-                    const h = y2 - y1
+                    } = this.range;
+                    const w = x2 - x1;
+                    const h = y2 - y1;
                     if (w <= 0) {
-                        console.error("x2必须大于x1")
-                        this.range = null
+                        console.error("x2必须大于x1");
+                        this.range = null;
                     } else if (h <= 0) {
-                        console.error("y2必须大于y1")
-                        this.range = null
+                        console.error("y2必须大于y1");
+                        this.range = null;
                     }
                 }
 
                 function missParam(name) {
-                    console.error("range中缺少参数" + name)
+                    console.error("range中缺少参数" + name);
                 }
             }
             if (config.direction) {
                 this.direction = config.direction
                 if (this.direction != "Horizontal" && this.direction != "Vertical") {
-                    console.error("direction参数值错误")
-                    this.direction = null
+                    console.error("direction参数值错误");
+                    this.direction = null;
                 }
             }
         }
         this.addEventListeners();
-        this.onDragStart = null
-        this.onDrag = null
+        this.onDragStart = null;
+        this.onDrag = null;
     }
 
     addEventListeners() {
@@ -109,19 +109,19 @@ class aDragger {
             x: e.clientX,
             y: e.clientY
         };
-        this.timeStart = Date.now()
+        this.timeStart = Date.now();
         const events = {
             element: this.#element,
             x: this.initPosition.x,
             y: this.initPosition.y,
             timestamp: Date.now()
-        }
+        };
         if (typeof this.onDragStart == "function") {
-            this.onDragStart(events)
+            this.onDragStart(events);
         }
         if (this.isToTop) {
-            this.#parentElement.removeChild(this.#element)
-            this.#parentElement.appendChild(this.#element)
+            this.#parentElement.removeChild(this.#element);
+            this.#parentElement.appendChild(this.#element);
         }
         document.addEventListener('mousemove', this.onMouseMove.bind(this));
     }
@@ -134,19 +134,19 @@ class aDragger {
             x: touch.clientX,
             y: touch.clientY
         };
-        this.timeStart = Date.now()
+        this.timeStart = Date.now();
         const events = {
             element: this.#element,
             x: this.initPosition.x,
             y: this.initPosition.y,
             timestamp: Date.now()
-        }
+        };
         if (typeof this.onDragStart == "function") {
-            this.onDragStart(events)
+            this.onDragStart(events);
         }
         if (this.isToTop) {
-            this.#parentElement.removeChild(this.#element)
-            this.#parentElement.appendChild(this.#element)
+            this.#parentElement.removeChild(this.#element);
+            this.#parentElement.appendChild(this.#element);
         }
         document.addEventListener('touchmove', this.onTouchMove.bind(this));
     }
@@ -173,35 +173,35 @@ class aDragger {
                 y1,
                 x2,
                 y2
-            } = this.range
-            const lastX = this.currentPosition.x
-            const lastY = this.currentPosition.y
-            console.log(lastX, lastY)
-            const w = x2 - x1
-            const h = y2 - y1
-            const ex = this.#element.offsetLeft
-            const ey = this.#element.offsetTop
-            const ew = this.#element.offsetWidth
-            const eh = this.#element.offsetHeight
+            } = this.range;
+            const lastX = this.currentPosition.x;
+            const lastY = this.currentPosition.y;
+            console.log(lastX, lastY);
+            const w = x2 - x1;
+            const h = y2 - y1;
+            const ex = this.#element.offsetLeft;
+            const ey = this.#element.offsetTop;
+            const ew = this.#element.offsetWidth;
+            const eh = this.#element.offsetHeight;
             if (ex <= x1) {
                 this.#element.style.left = `${x1}px`;
-                this.initPosition.x = x1
-                this.currentPosition.x = x1
+                this.initPosition.x = x1;
+                this.currentPosition.x = x1;
             }
             if (ey <= y1) {
                 this.#element.style.top = `${y1}px`;
-                this.initPosition.y = y1
-                this.currentPosition.y = y1
+                this.initPosition.y = y1;
+                this.currentPosition.y = y1;
             }
             if (ex >= x2 - ew) {
                 this.#element.style.left = `${x2 - ew}px`;
-                this.initPosition.x = x2 - ew
-                this.currentPosition.x = x2 - ew
+                this.initPosition.x = x2 - ew;
+                this.currentPosition.x = x2 - ew;
             }
             if (ey >= y2 - eh) {
                 this.#element.style.top = `${y2 - eh}px`;
-                this.initPosition.y = y2 - eh
-                this.currentPosition.y = y2 - eh
+                this.initPosition.y = y2 - eh;
+                this.currentPosition.y = y2 - eh;
             }
         }
         const events = {
@@ -209,9 +209,9 @@ class aDragger {
             x: this.currentPosition.x,
             y: this.currentPosition.y,
             timestamp: Date.now()
-        }
+        };
         if (typeof this.onDrag == "function") {
-            this.onDrag(events)
+            this.onDrag(events);
         }
     }
 
@@ -239,32 +239,32 @@ class aDragger {
                 y1,
                 x2,
                 y2
-            } = this.range
-            const w = x2 - x1
-            const h = y2 - y1
-            const ex = this.#element.offsetLeft
-            const ey = this.#element.offsetTop
-            const ew = this.#element.offsetWidth
-            const eh = this.#element.offsetHeight
+            } = this.range;
+            const w = x2 - x1;
+            const h = y2 - y1;
+            const ex = this.#element.offsetLeft;
+            const ey = this.#element.offsetTop;
+            const ew = this.#element.offsetWidth;
+            const eh = this.#element.offsetHeight;
             if (ex <= x1) {
                 this.#element.style.left = `${x1}px`;
-                this.initPosition.x = x1
-                this.currentPosition.x = x1
+                this.initPosition.x = x1;
+                this.currentPosition.x = x1;
             }
             if (ey <= y1) {
                 this.#element.style.top = `${y1}px`;
-                this.initPosition.y = y1
-                this.currentPosition.y = y1
+                this.initPosition.y = y1;
+                this.currentPosition.y = y1;
             }
             if (ex > x2 - ew - 5) {
                 this.#element.style.left = `${x2 - ew}px`;
-                this.initPosition.x = x2 - ew
-                this.currentPosition.x = x2 - ew
+                this.initPosition.x = x2 - ew;
+                this.currentPosition.x = x2 - ew;
             }
             if (ey > y2 - eh) {
                 this.#element.style.top = `${y2 - eh}px`;
-                this.initPosition.y = y2 - eh
-                this.currentPosition.y = y2 - eh
+                this.initPosition.y = y2 - eh;
+                this.currentPosition.y = y2 - eh;
             }
         }
         const events = {
@@ -272,26 +272,26 @@ class aDragger {
             x: this.currentPosition.x,
             y: this.currentPosition.y,
             timestamp: Date.now()
-        }
+        };
         if (typeof this.onDrag == "function") {
-            this.onDrag(events)
+            this.onDrag(events);
         }
     }
 
     onMouseUp(e) {
         this._isDragging = false;
-        this.timeEnd = Date.now()
-        const duration = this.timeEnd - this.timeStart
+        this.timeEnd = Date.now();
+        const duration = this.timeEnd - this.timeStart;
         const events = {
             element: this.#element,
             x: this.currentPosition.x,
             y: this.currentPosition.y,
             timestamp: Date.now(),
             duration: duration
-        }
+        };
         if (e.target == this.#element) {
             if (typeof this.onDragEnd == "function") {
-                this.onDragEnd(events)
+                this.onDragEnd(events);
             }
         }
         document.removeEventListener('mousemove', this.onMouseMove.bind(this));
@@ -299,18 +299,18 @@ class aDragger {
 
     onTouchEnd(e) {
         this._isDragging = false;
-        this.timeEnd = Date.now()
-        const duration = this.timeEnd - this.timeStart
+        this.timeEnd = Date.now();
+        const duration = this.timeEnd - this.timeStart;
         const events = {
             element: this.#element,
             x: this.currentPosition.x,
             y: this.currentPosition.y,
             timestamp: Date.now(),
             duration: duration
-        }
+        };
         if (e.target == this.#element) {
             if (typeof this.onDragEnd == "function") {
-                this.onDragEnd(events)
+                this.onDragEnd(events);
             }
         }
         document.removeEventListener('touchmove', this.onTouchMove.bind(this));
@@ -318,31 +318,31 @@ class aDragger {
 
     setConfig(name, value) {
         if (name == "isToTop") {
-            this.isToTop = value
+            this.isToTop = value;
         } else if (name == "range") {
-            this.range = value
+            this.range = value;
             if (this.range) {
                 if (!this.range.x1 && this.range.x1 != 0) {
-                    missParam("x1")
-                    this.range = null
+                    missParam("x1");
+                    this.range = null;
                 }
             }
             if (this.range) {
                 if (!this.range.y1 && this.range.y1 != 0) {
-                    missParam("y1")
-                    this.range = null
+                    missParam("y1");
+                    this.range = null;
                 }
             }
             if (this.range) {
                 if (!this.range.x2 && this.range.x2 != 0) {
-                    missParam("x2")
-                    this.range = null
+                    missParam("x2");
+                    this.range = null;
                 }
             }
             if (this.range) {
                 if (!this.range.y2 && this.range.y2 != 0) {
-                    missParam("y2")
-                    this.range = null
+                    missParam("y2");
+                    this.range = null;
                 }
             }
             if (this.range) {
@@ -351,81 +351,81 @@ class aDragger {
                     y1,
                     x2,
                     y2
-                } = this.range
-                const w = x2 - x1
-                const h = y2 - y1
+                } = this.range;
+                const w = x2 - x1;
+                const h = y2 - y1;
                 if (w <= 0) {
-                    console.error("x2必须大于x1")
-                    this.range = null
+                    console.error("x2必须大于x1");
+                    this.range = null;
                 } else if (h <= 0) {
-                    console.error("y2必须大于y1")
-                    this.range = null
+                    console.error("y2必须大于y1");
+                    this.range = null;
                 }
             }
 
             function missParam(name) {
-                console.error("range中缺少参数" + name)
+                console.error("range中缺少参数" + name);
             }
         } else if (name == "rangeX1") {
             if (this.range) {
-                this.range.x1 = value
+                this.range.x1 = value;
             } else {
-                console.error("请先设置range配置")
+                console.error("请先设置range配置");
             }
         } else if (name == "rangeY1") {
             if (this.range) {
-                this.range.y1 = value
+                this.range.y1 = value;
             } else {
-                console.error("请先设置range配置")
+                console.error("请先设置range配置");
             }
         } else if (name == "rangeX2") {
             if (this.range) {
-                this.range.x2 = value
+                this.range.x2 = value;
             } else {
-                console.error("请先设置range配置")
+                console.error("请先设置range配置");
             }
         } else if (name == "rangeY2") {
             if (this.range) {
-                this.range.y2 = value
+                this.range.y2 = value;
             } else {
-                console.error("请先设置range配置")
+                console.error("请先设置range配置");
             }
         } else {
-            console.error("未知配置名")
+            console.error("未知配置名");
         }
         if (name == "direction") {
-            this.direction = value
+            this.direction = value;
             if (this.direction != "Horizontal" && this.direction != "Vertical") {
-                console.error("direction参数值错误")
-                this.direction = null
+                console.error("direction参数值错误");
+                this.direction = null;
             }
         }
     }
 
     getConfig(name) {
         if (name == "isToTop") {
-            return this.isToTop
+            return this.isToTop;
         } else if (name == "rangeX1") {
             if (this.range) {
-                return this.range.x1
+                return this.range.x1;
             }
         } else if (name == "rangeY1") {
             if (this.range) {
-                return this.range.Y1
+                return this.range.Y1;
             }
         } else if (name == "rangeX2") {
             if (this.range) {
-                return this.range.x2
+                return this.range.x2;
             }
         } else if (name == "rangeY2") {
             if (this.range) {
-                return this.range.y2
+                return this.range.y2;
             }
         } else {
-            console.error("未知配置名")
+            console.error("未知配置名");
         }
         if (name == "direction") {
-            return this.direction
+            return this.direction;
         }
     }
 
@@ -441,14 +441,18 @@ class aDragger {
     goto(x, y) {
         if (x || x == 0) {
             this.#element.style.left = `${x}px`;
-            this.initPosition.x = x
+            this.initPosition.x = x;
             this.currentPosition = this.initPosition;
         }
         if (y || y == 0) {
             this.#element.style.top = `${y}px`;
-            this.initPosition.y = y
+            this.initPosition.y = y;
             this.currentPosition = this.initPosition;
         }
+    }
+
+    toString() {
+        return `Dragger(${this.#element.id})`;
     }
 }
 window.Dragger = aDragger
