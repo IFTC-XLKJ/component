@@ -1,4 +1,4 @@
-class SHA1Tool {
+class SHA1 {
     /**
      * @method 
      * @param {string} s 加密后的字符串
