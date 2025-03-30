@@ -19,6 +19,8 @@ import SHA1 from 'your/path/to/SHA1.js';
 ```javascript
 // 创建一个 SHA1 实例
 const sha1 = new SHA1();
+console.log(sha1.sha1('Hello World!'));
+sha1.isMatching('Hello World!','33a158539c366ae3c0b139c0277c646d27bdebe0');
 ```
 
 ## 属性
