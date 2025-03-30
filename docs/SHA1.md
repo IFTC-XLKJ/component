@@ -14,21 +14,11 @@ import SHA1 from 'your/path/to/SHA1.js';
 ```
 
 ## 用法
-下面是如何使用 `Dragger` 类的一个基本示例：
+下面是如何使用 `SHA1` 类的一个基本示例：
 
 ```javascript
-// 创建一个 Dragger 实例
-const config = { // 配置
-    isToTop: true, // 是否置顶
-    range: { // 拖拽范围
-        x1: 0,
-        y1: 0,
-        x2: innerWidth,
-        y2: innerHeight
-    }, // 该示例拖拽范围为整个页面
-    direction: null, // 拖拽方向，二选一："Horizontal" || "Vertical"，null为自由拖拽
-};
-const dragger = new Dragger(document.getElementById('draggable-element'), config);
+// 创建一个 SHA1 实例
+const sha1 = new SHA1();
 ```
 
 ## 属性
