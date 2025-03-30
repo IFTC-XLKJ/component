@@ -95,4 +95,3 @@ class SHA1 {
         return hex;
     }
 }
-export default SHA1;
