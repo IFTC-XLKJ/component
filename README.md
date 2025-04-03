@@ -30,4 +30,4 @@ npm install vvcomponent
 该项目使用 MIT 许可证。许可证详情请见 `LICENSE` 文件。
 
 ## 赞助
-![赞助](./sponsor.jpg)
+![赞助](https://vvpan.deno.dev/file/iftc/sponsor.jpg)
